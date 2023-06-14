@@ -13,6 +13,10 @@ app.use(cors());
 
 getDBConnection();
 
+app.get("/", (req, res) => {
+    res.redirect('/skills');
+})
+
 app.use('/skills', routerSkills);
 app.use('/experiencie', routerExperiencies);
 
