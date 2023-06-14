@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import anime from "animejs";
 
+
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
@@ -39,6 +40,7 @@ const AppProvider = ({ children }) => {
       opacity: 1
     })
   }
+
   return (
     <AppContext.Provider
       value={{
@@ -48,7 +50,7 @@ const AppProvider = ({ children }) => {
         getNewLanguage,
         handleWaypointToLeft,
         handleWaypointToRight,
-        handleWaypointTitles
+        handleWaypointTitles,
       }}
     >
       {children}

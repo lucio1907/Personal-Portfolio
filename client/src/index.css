@@ -19,3 +19,7 @@ html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+
+.menu-open {
+    overflow-y: hidden;
+}

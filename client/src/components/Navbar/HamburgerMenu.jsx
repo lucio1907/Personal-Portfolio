@@ -1,10 +1,10 @@
 import useAppContext from "../../hooks/useAppContext";
 
+
 const HamburgerMenu = () => {
   const { showMenu, getMenu, changeLanguage } = useAppContext();
 
   const navButtons = changeLanguage ? ["Home", "Experiences", "About", "Skills", "Contact"] : ["Home", "Experiencias", "Acerca", "Skills", "Contacto"];
-
   return (
     <div className={`bg-[#23263a] h-[829px] relative ${showMenu ? "left-0" : "-left-[1000px]"} transition-all ease-in duration-500`}>
       <div className="flex justify-center items-center h-full">

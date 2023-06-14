@@ -1,10 +1,21 @@
-import GithubWindow from "./GithubWindow";
 import SkillWindow from "./SkillWindow";
 import { Waypoint } from "react-waypoint";
 import useAppContext from "../../hooks/useAppContext";
+import { useEffect, useState } from "react";
 
 const SkillSet = () => {
-  const { handleWaypointToLeft, handleWaypointToRight, handleWaypointTitles } = useAppContext();
+  const { handleWaypointToRight, handleWaypointTitles } = useAppContext();
+  const [getSkills, setGetSkills] = useState([]);
+
+  const getApi = async () => {
+    const response = await fetch("https://personal-portfoliolucio.up.railway.app/skills");
+    const data = await response.json();
+    setGetSkills(data);
+  };
+
+  useEffect(() => {
+    getApi();
+  }, []);
 
   return (
     <div id="skills" className="bg-[#23263a] h-full flex flex-col items-center">
@@ -14,47 +25,21 @@ const SkillSet = () => {
           <span className="underline underline-offset-[15px]">Skill</span>-Set
         </p>
       </div>
-      <Waypoint onEnter={() => handleWaypointTitles('.animation-title')}/>
+      <Waypoint onEnter={() => handleWaypointTitles(".animation-title")} />
 
-      <div className="window-animation-html relative -left-[1000px] flex justify-center">
-        <SkillWindow
-          title={"HTML"}
-          paragraphES={"HTML para el maquetado de sitios web"}
-          paragraphEN={"HTML for web sites layout"}
-          img={
-            "https://res.cloudinary.com/dxtsx9ln9/image/upload/v1663646265/Skills/HTML_rwjnd2.png"
-          }
-        />
-      </div>
-      <Waypoint onEnter={() => handleWaypointToRight(".window-animation-html")}/>
-
-      <div className="window-animation-css relative left-[1000px] flex justify-center">
-        <SkillWindow
-          title={'CSS'}
-          paragraphES={'CSS para definir los estilos'}
-          paragraphEN={'CSS to define the styles'}
-          img={'https://res.cloudinary.com/dxtsx9ln9/image/upload/v1663646265/Skills/CSS_vh9tkx.png'}
-        />
-      </div>
-      <Waypoint onEnter={() => handleWaypointToLeft('.window-animation-css')}/>
-
-      <div className="window-animation-react relative -left-[1000px] flex justify-center">
-        <SkillWindow
-          title={"React JS"}
-          paragraphES={"React JS para la creación de interfaces UI."}
-          paragraphEN={"React JS for build UI interfaces."}
-          img={
-            "https://res.cloudinary.com/dxtsx9ln9/image/upload/v1663646266/Skills/react_dv1qlp.png"
-          }
-        />
-      </div>
-      <Waypoint onEnter={() => handleWaypointToRight(".window-animation-react")}/>
-
-      <div className="window-animation-github relative left-[1000px] flex justify-center">
-        <GithubWindow />
-      </div>
-      <Waypoint onEnter={() => handleWaypointToLeft(".window-animation-github")}/>
-
+      {getSkills.map((item) => (
+        <div key={item._id}>
+          <Waypoint onEnter={() => handleWaypointToRight(`.window-animation-${item.title.replace(/\s/g, "")}`)}/> 
+          <div className={`window-animation-${item.title.replace(/\s/g, "")} relative -left-[1000px] flex justify-center`}>
+            <SkillWindow
+              title={item.title}
+              paragraphES={item.paragraphES}
+              paragraphEN={item.paragraphEN}
+              img={item.imgLink}
+            />           
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
