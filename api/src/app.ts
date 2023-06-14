@@ -17,4 +17,4 @@ app.use('/skills', routerSkills);
 app.use('/experiencie', routerExperiencies);
 
 const PORT = 8080 || process.env.PORT;
-app.listen(PORT, () => console.log(`Server running in port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`Server running in port ${PORT}`));
