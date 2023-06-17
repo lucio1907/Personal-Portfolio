@@ -9,7 +9,7 @@ class SkillsService {
     }
 
     async getSkills() {
-        const skills = await this.collection.find().select('-createdAt -updatedAt');
+        const skills = await this.collection.find().sort({ "order": 1 }).select('-createdAt -updatedAt');
         return skills;
     }
 

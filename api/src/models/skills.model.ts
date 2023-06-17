@@ -22,6 +22,10 @@ const schema = new mongoose.Schema<Skills>(
       type: String,
       trim: true,
     },
+    order: {
+      type: Number,
+      trim: true
+    }
   },
   {
     timestamps: true,

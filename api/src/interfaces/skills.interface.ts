@@ -3,6 +3,7 @@ interface Skills {
     paragraphES: string;
     paragraphEN: string;
     imgLink?: string;
+    order?: number;
 }
 
 export default Skills;
