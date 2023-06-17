@@ -2,9 +2,10 @@ import SkillWindow from "./SkillWindow";
 import { Waypoint } from "react-waypoint";
 import useAppContext from "../../hooks/useAppContext";
 import { useEffect, useState } from "react";
+import GoBackButton from "../buttons/GoBackButton";
 
 const SkillSet = () => {
-  const { handleWaypointToRight, handleWaypointTitles } = useAppContext();
+  const { handleWaypointToRight, handleWaypointTitles, handleWaypointGoBack } = useAppContext();
   const [getSkills, setGetSkills] = useState([]);
 
   const getApi = async () => {
@@ -26,6 +27,8 @@ const SkillSet = () => {
         </p>
       </div>
       <Waypoint onEnter={() => handleWaypointTitles(".animation-title")} />
+
+      <GoBackButton />
 
       {getSkills.map((item) => (
         <div key={item._id}>

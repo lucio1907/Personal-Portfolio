@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import routerSkills from "./routes/skills.routes";
 import routerExperiencies from "./routes/experiencies.routes";
+import routerEmails from "./routes/emails.routes";
 import getDBConnection from "./config/dbconnection";
 import "dotenv/config";
 
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.use('/skills', routerSkills);
 app.use('/experiencie', routerExperiencies);
+app.use('/sendEmail', routerEmails);
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => console.log(`Server running in port ${PORT}`));

@@ -41,6 +41,15 @@ const AppProvider = ({ children }) => {
     })
   }
 
+  const handleWaypointGoBack = (target) => {
+    anime({
+      targets: target,
+      right: 0,
+      duration: 2000,
+      easing: 'easeInOutExpo'
+    })
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -51,6 +60,7 @@ const AppProvider = ({ children }) => {
         handleWaypointToLeft,
         handleWaypointToRight,
         handleWaypointTitles,
+        handleWaypointGoBack
       }}
     >
       {children}
