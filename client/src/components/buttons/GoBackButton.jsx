@@ -5,7 +5,7 @@ const GoBackButton = () => {
   const { handleWaypointGoBack } = useAppContext();
   return (
     <>
-      <div className="animation-button-GoBack w-full flex justify-end mr-1 fixed bottom-[20px] right-[1000px] z-10">
+      <div className="animation-button-GoBack flex justify-end mr-1 fixed bottom-[20px] right-[1000px] z-10">
         <a href="#">
           <svg
             xmlns="http://www.w3.org/2000/svg"

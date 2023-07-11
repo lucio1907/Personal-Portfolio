@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ExperienciesWindow from "./ExperiencesWindow";
 
 const Experiencies = () => {
-    const { changeLanguage, handleWaypointTitles } = useAppContext();
+    const { changeLanguage, handleWaypointTitles, handleWaypointToRight } = useAppContext();
     const [getResponse, setGetResponse] = useState([]);
 
     const getApi = async () => {
@@ -27,6 +27,7 @@ const Experiencies = () => {
             </div>
             <Waypoint onEnter={() => handleWaypointTitles('.animation-title-experiences')}/>
 
+            <Waypoint onEnter={() => handleWaypointToRight('.window-animation-experience')}/>
             <ExperienciesWindow getResponse={getResponse}/>
         </div>
     )

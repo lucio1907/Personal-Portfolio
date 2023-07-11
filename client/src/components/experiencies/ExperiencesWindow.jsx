@@ -5,7 +5,7 @@ const ExperienciesWindow = ({ getResponse }) => {
     return (
         <div>
             {getResponse.map(item => (
-                <div key={item._id} className="window-animation-experience bg-[#2b2d41] p-5 w-[270px] h-full flex flex-col items-center justify-center gap-2 mt-8 shadow-lg shadow-[#14172a]">
+                <div key={item._id} className="window-animation-experience relative -left-[1000px] bg-[#2b2d41] p-5 w-[270px] h-full flex flex-col items-center justify-center gap-2 mt-8 shadow-lg shadow-[#14172a]">
                 <img src={item.companyLogo} alt={item.title} className="h-[50px]" />
                 <p className="text-white text-xl font-paragraph font-semibold tracking-wide">
                   {item.title}
