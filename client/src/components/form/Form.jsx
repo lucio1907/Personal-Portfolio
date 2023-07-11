@@ -3,58 +3,75 @@ import useAppContext from "../../hooks/useAppContext";
 
 const Form = () => {
   const { changeLanguage } = useAppContext();
-  const [getClientEmail, setGetClientEmail] = useState('');
-  const [getMessage, setGetMessage] = useState('');
+  const [getClientEmail, setGetClientEmail] = useState("");
+  const [getMessage, setGetMessage] = useState("");
   const [validEmail, setValidEmail] = useState(true);
   const [emailSended, setEmailSended] = useState(false);
 
   const user = {
-    from: '',
-    to: 'luciogastellu.dev@gmail.com',
-    subject: 'Wants connect',
-    message: ''
-  }
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+    from: "",
+    to: "luciogastellu.dev@gmail.com",
+    subject: "Wants to connect",
+    message: "",
+  };
 
-    user.from = getClientEmail
-    user.message = getMessage
-    
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    user.from = getClientEmail;
+    user.message = getMessage;
+
     try {
-        const response = await fetch('https://personal-portfoliolucio.up.railway.app/sendEmail', {
-            method: 'POST',
-            body: JSON.stringify(user),
-            headers: {
-                "Content-Type": "application/json",
-                "developer-id": 19072001
-            }
-        })        
-        const data = await response.json()
-        if (data.message === '') {}
+      const response = await fetch("https://portfoliolucio.fly.dev/sendEmail", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+          "developer-id": import.meta.env.VITE_DEVELOPER_AUTH,
+        },
+      });
+      const data = await response.json();
+
+      if (data.status === 200) setEmailSended(true);
+      else setEmailSended(false);
     } catch (error) {
-        console.error(error);
+      console.error(error);
+    } finally {
+      setGetClientEmail('');
+      setGetMessage('');
+      
+      setTimeout(() => {
+        setEmailSended(false)
+      }, 3000);
     }
-  }
+  };
 
   const handleOnChange = (e) => {
-    setGetClientEmail(e.target.value)
+    setGetClientEmail(e.target.value);
 
-    const regEx =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ 
-    if (regEx.test(getClientEmail)) setValidEmail(true)
-    else setValidEmail(false)
-  }
+    const regEx = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    if (regEx.test(getClientEmail)) setValidEmail(true);
+    else setValidEmail(false);
+  };
 
   return (
-    <form className="w-[100%] flex flex-col form-animation relative -left-[1000px]" onSubmit={handleSubmit}>
+    <form
+      className="w-[100%] h-[100%] flex flex-col form-animation relative -left-[1000px]"
+      onSubmit={handleSubmit}
+    >
       <input
         name="from"
         type="text"
         placeholder="Email"
         className="w-[100%] mt-5 p-2 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7]"
+        value={getClientEmail}
         onChange={handleOnChange}
       />
-      {validEmail ? '' : <p className="font-paragraph text-[#ff4a57] text-sm">Invalid email.</p>}
+      {validEmail ? (
+        ""
+      ) : (
+        <p className="font-paragraph text-[#ff4a57] text-sm">Invalid email.</p>
+      )}
       <textarea
         name="message"
         cols="30"
@@ -62,13 +79,16 @@ const Form = () => {
         placeholder={changeLanguage ? "Message" : "Mensaje"}
         className="w-[100%] mt-5 p-2 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7]"
         onChange={(e) => setGetMessage(e.target.value)}
+        value={getMessage}
       ></textarea>
 
       <div className="flex justify-end w-full mt-5">
         <button
-          className={`${validEmail ? 'bg-[#ff4a57]' : 'bg-[#ff4a56ba]'} p-2 ${changeLanguage ? "w-[70%]" : "w-[50%]"} flex font-paragraph font-medium transition-all ease-in duration-200`}
+          className={`${validEmail ? "bg-[#ff4a57]" : "bg-[#ff4a56ba]"} p-2 ${
+            changeLanguage ? "w-[70%]" : "w-[50%]"
+          } flex font-paragraph font-medium transition-all ease-in duration-200`}
           disabled={validEmail ? false : true}
-          >
+        >
           <p className="ml-1">
             {changeLanguage ? "Stay connected" : "Conecta"}
           </p>
@@ -86,6 +106,15 @@ const Form = () => {
         </button>
       </div>
 
+      {emailSended ? (
+        <div className="flex justify-center p-2">
+          <p className="font-paragraph text-[#4aff4d]">
+            {emailSended ? `${changeLanguage ? 'Email successfully sended.' : 'Email enviado con éxito.'}` : ""}
+          </p>
+        </div>
+      ) : (
+        ""
+      )}
     </form>
   );
 };

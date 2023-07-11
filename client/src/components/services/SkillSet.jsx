@@ -9,7 +9,7 @@ const SkillSet = () => {
   const [getResponse, setGetResponse] = useState([]);
 
   const getApi = async () => {
-    const response = await fetch("https://personal-portfoliolucio.up.railway.app/skills");
+    const response = await fetch("https://portfoliolucio.fly.dev/skills");
     const data = await response.json();
     setGetResponse(data);
   };

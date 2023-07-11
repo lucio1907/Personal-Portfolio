@@ -8,7 +8,7 @@ const Experiencies = () => {
     const [getResponse, setGetResponse] = useState([]);
 
     const getApi = async () => {
-        const response = await fetch("https://personal-portfoliolucio.up.railway.app/experiencie")
+        const response = await fetch("https://portfoliolucio.fly.dev/experiences")
         const data = await response.json()
         setGetResponse(data)
     }
