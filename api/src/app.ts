@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 })
 
 app.use('/skills', routerSkills);
-app.use('/experiencie', routerExperiencies);
+app.use('/experiences', routerExperiencies);
 app.use('/sendEmail', routerEmails);
 
 const PORT = process.env.PORT || 8080

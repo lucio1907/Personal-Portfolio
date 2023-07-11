@@ -4,7 +4,7 @@ import experiencieServices from "../services/experiencies.service";
 const getItems = async (req: Request, res: Response) => {
     try {
         const getAllItems = await experiencieServices.getExperiencies();
-        if (getAllItems === "NO_EXPERIENCIES") return res.status(400).json({ message: 'No experiencies added' });
+        if (getAllItems === "NO_EXPERIENCIES") return res.status(400).json({ message: 'No experiences added' });
         res.json(getAllItems);
     } catch (error: any) {
         res.status(500).json({ error: error._message });
