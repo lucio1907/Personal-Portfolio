@@ -6,7 +6,9 @@ const Form = () => {
   const [getClientEmail, setGetClientEmail] = useState("");
   const [getMessage, setGetMessage] = useState("");
   const [validEmail, setValidEmail] = useState(true);
+  const [disabledButton, setDisabledButton] = useState(true);
   const [emailSended, setEmailSended] = useState(false);
+  const [errorToSendEmail, setErrorToSendEmail] = useState(false);
 
   const user = {
     from: "",
@@ -34,15 +36,20 @@ const Form = () => {
 
       if (data.status === 200) setEmailSended(true);
       else setEmailSended(false);
+
+      if (data.status === 500) setErrorToSendEmail(true);
+      else setErrorToSendEmail(false);
     } catch (error) {
       console.error(error);
     } finally {
       setGetClientEmail('');
       setGetMessage('');
+      setDisabledButton(true)
       
       setTimeout(() => {
         setEmailSended(false)
-      }, 3000);
+        setErrorToSendEmail(false)
+      }, 5000);
     }
   };
 
@@ -50,8 +57,14 @@ const Form = () => {
     setGetClientEmail(e.target.value);
 
     const regEx = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-    if (regEx.test(getClientEmail)) setValidEmail(true);
-    else setValidEmail(false);
+    if (regEx.test(getClientEmail)) {
+      setValidEmail(true);
+      setDisabledButton(false);
+    }
+    else {
+      setValidEmail(false);
+      setDisabledButton(true);
+    }
   };
 
   return (
@@ -84,10 +97,8 @@ const Form = () => {
 
       <div className="flex justify-end w-full mt-5">
         <button
-          className={`${validEmail ? "bg-[#ff4a57]" : "bg-[#ff4a56ba]"} p-2 ${
-            changeLanguage ? "w-[70%]" : "w-[50%]"
-          } flex font-paragraph font-medium transition-all ease-in duration-200`}
-          disabled={validEmail ? false : true}
+          className={`${disabledButton ? "bg-[#ff4a56ba]" : "bg-[#ff4a57]" } p-2 ${ changeLanguage ? "w-[70%]" : "w-[50%]"} flex font-paragraph font-medium transition-all ease-in duration-200`}
+          disabled={disabledButton ? true : false}
         >
           <p className="ml-1">
             {changeLanguage ? "Stay connected" : "Conecta"}
@@ -115,6 +126,14 @@ const Form = () => {
       ) : (
         ""
       )}
+
+      {errorToSendEmail ? (
+        <div className="flex justify-center p-2">
+        <p className={`font-paragraph text-[#ff4a57] ${changeLanguage ? '' : 'text-sm'}`}>
+          {errorToSendEmail ? `${changeLanguage ? 'Error to send email (Field empty).' : 'Error al enviar el email (Campo vacío).'}` : ""}
+        </p>
+      </div>
+      ) : ""}
     </form>
   );
 };

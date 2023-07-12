@@ -26,14 +26,15 @@ class EmailsServices {
             subject,
             text: `${message}\n From: ${from}`
         }
-
-        transporter.sendMail(mailOptions, (err, info) => {            
-            if (err) return "ERROR_TO_SEND_EMAIL";
-            else console.log(info.response);
-        })
         
         if ([from, to, subject, message].includes("")) return "ERROR_TO_SEND_EMAIL"
-        else return "EMAIL_SENDED"
+        else {
+            transporter.sendMail(mailOptions, (err, info) => {            
+                if (err) return "ERROR_TO_SEND_EMAIL";
+                else console.log(info.response);
+            })
+            return "EMAIL_SENDED"
+        }
     }
 
     async saveEmail(body: Emails) {
