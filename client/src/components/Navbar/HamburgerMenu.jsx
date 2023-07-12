@@ -10,7 +10,7 @@ const HamburgerMenu = () => {
       <div className="flex justify-center items-center h-full">
         <ul className="flex flex-col text-center gap-[50px] text-white font-lucio text-xl w-screen">
           {navButtons.map((item) => (
-            <li key={item} className="active:bg-slate-300 active:text-black transition-all ease-in duration-300 w-full">
+            <li key={item} className="active:bg-slate-300 active:text-black tablet:text-2xl transition-all ease-in duration-300 w-full">
               <a href={`#${item.toLowerCase()}`} onClick={() => getMenu()}>{item}</a>
             </li>
           ))}

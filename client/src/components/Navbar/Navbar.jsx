@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="flex items-center justify-start h-full">
             <HamburgerButton />
             <div className="flex items-center justify-center w-full">
-             <p className="font-lucio font-bold text-white text-3xl tracking-wide">Lucio<span className="text-[#ff4a57]">GA.</span></p>
+             <p className="font-lucio font-bold text-white text-3xl tablet:text-4xl tracking-wide tablet:tracking-normal">Lucio<span className="text-[#ff4a57]">GA.</span></p>
             </div>
         </div>
         <HamburgerMenu/>

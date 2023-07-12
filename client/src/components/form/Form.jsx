@@ -76,28 +76,28 @@ const Form = () => {
         name="from"
         type="text"
         placeholder="Email"
-        className="w-[100%] mt-5 p-2 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7]"
+        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7] font-paragraph"
         value={getClientEmail}
         onChange={handleOnChange}
       />
       {validEmail ? (
         ""
       ) : (
-        <p className="font-paragraph text-[#ff4a57] text-sm">Invalid email.</p>
+        <p className="font-paragraph text-[#ff4a57] text-sm ml-1">Invalid email.</p>
       )}
       <textarea
         name="message"
         cols="30"
         rows="1"
         placeholder={changeLanguage ? "Message" : "Mensaje"}
-        className="w-[100%] mt-5 p-2 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7]"
+        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] font-paragraph text-[#b7b9c7]"
         onChange={(e) => setGetMessage(e.target.value)}
         value={getMessage}
       ></textarea>
 
       <div className="flex justify-end w-full mt-5">
         <button
-          className={`${disabledButton ? "bg-[#ff4a56ba]" : "bg-[#ff4a57]" } p-2 ${ changeLanguage ? "w-[70%]" : "w-[50%]"} flex font-paragraph font-medium transition-all ease-in duration-200`}
+          className={`${disabledButton ? "bg-[#ff4a56ba]" : "bg-[#ff4a57]" } p-2 ${ changeLanguage ? "w-[70%] tablet:w-[50%]" : "w-[50%] tablet:w-[40%]"} flex tablet:justify-end font-paragraph font-medium transition-all ease-in duration-200`}
           disabled={disabledButton ? true : false}
         >
           <p className="ml-1">

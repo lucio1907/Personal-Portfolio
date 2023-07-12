@@ -19,9 +19,9 @@ const Experiencies = () => {
 
     return (
         <div id={changeLanguage ? 'experiences' : 'experiencias'} className="bg-[#23263a] h-full flex flex-col items-center">
-            <div className="mb-10 flex flex-col w-full p-5 animation-title-experiences opacity-0 relative bottom-4 mt-10">
-                <p className="text-white font-lucio font-semibold">{changeLanguage ? 'Jobs' : 'Trabajos'}</p>
-                <p className="font-title font-bold text-[#ff4a57] text-3xl">
+            <div className="mb-10 flex flex-col w-full p-5 animation-title-experiences opacity-0 relative bottom-4 mt-10 tablet:mt-16">
+                <p className="text-white font-lucio font-semibold tablet:text-xl">{changeLanguage ? 'Jobs' : 'Trabajos'}</p>
+                <p className="font-title font-bold text-[#ff4a57] text-3xl tablet:text-4xl">
                     <span className="underline underline-offset-[15px]">{changeLanguage ? 'Experiences' : 'Experiencias'}</span>
                 </p>
             </div>

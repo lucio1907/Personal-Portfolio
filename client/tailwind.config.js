@@ -7,6 +7,9 @@ export default {
         'lucio': ['PT Sans', 'sans-serif'],
         'title': ['Noto Sans SC', 'sans-serif'],
         'paragraph': ['Poppins', 'sans-serif']
+      },
+      screens: {
+        'tablet': '700px'
       }
     },
   },

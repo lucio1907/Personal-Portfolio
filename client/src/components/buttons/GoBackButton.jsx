@@ -13,7 +13,7 @@ const GoBackButton = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-6 h-6 tablet:w-9"
             color="#ff4a57"
           >
             <path
