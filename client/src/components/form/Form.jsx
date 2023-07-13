@@ -69,14 +69,14 @@ const Form = () => {
 
   return (
     <form
-      className="w-[100%] h-[100%] flex flex-col form-animation relative -left-[1000px]"
+      className="w-[100%] h-[100%] flex flex-col justify-center form-animation relative -left-[1000px]"
       onSubmit={handleSubmit}
     >
       <input
         name="from"
         type="text"
         placeholder="Email"
-        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7] font-paragraph"
+        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7] font-paragraph notebook:p-5 notebook:text-lg"
         value={getClientEmail}
         onChange={handleOnChange}
       />
@@ -90,17 +90,17 @@ const Form = () => {
         cols="30"
         rows="1"
         placeholder={changeLanguage ? "Message" : "Mensaje"}
-        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] font-paragraph text-[#b7b9c7]"
+        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] font-paragraph text-[#b7b9c7] notebook:p-5 notebook:text-lg"
         onChange={(e) => setGetMessage(e.target.value)}
         value={getMessage}
       ></textarea>
 
       <div className="flex justify-end w-full mt-5">
         <button
-          className={`${disabledButton ? "bg-[#ff4a56ba]" : "bg-[#ff4a57]" } p-2 ${ changeLanguage ? "w-[70%] tablet:w-[50%]" : "w-[50%] tablet:w-[40%]"} flex tablet:justify-end font-paragraph font-medium transition-all ease-in duration-200`}
+          className={`${disabledButton ? "bg-[#ff4a56ba]" : "bg-[#ff4a57]" } p-2 ${ changeLanguage ? "w-[70%] tablet:w-[50%] notebook:w-[40%]" : "w-[50%] tablet:w-[40%] notebook:w-[35%]"} flex tablet:justify-end notebook:p-3 notebook:text-lg font-paragraph font-medium transition-all ease-in duration-200`}
           disabled={disabledButton ? true : false}
         >
-          <p className="ml-1">
+          <p className="ml-1 notebook:text-xl">
             {changeLanguage ? "Stay connected" : "Conecta"}
           </p>
           <svg
@@ -118,8 +118,8 @@ const Form = () => {
       </div>
 
       {emailSended ? (
-        <div className="flex justify-center p-2">
-          <p className="font-paragraph text-[#4aff4d]">
+        <div className="flex justify-center p-2 mt-4">
+          <p className="font-paragraph text-[#4aff4d] notebook:text-lg">
             {emailSended ? `${changeLanguage ? 'Email successfully sended.' : 'Email enviado con éxito.'}` : ""}
           </p>
         </div>
@@ -128,8 +128,8 @@ const Form = () => {
       )}
 
       {errorToSendEmail ? (
-        <div className="flex justify-center p-2">
-        <p className={`font-paragraph text-[#ff4a57] ${changeLanguage ? '' : 'text-sm'}`}>
+        <div className="flex justify-center p-2 mt-4">
+        <p className={`font-paragraph text-[#ff4a57] notebook:text-lg ${changeLanguage ? '' : 'text-sm'}`}>
           {errorToSendEmail ? `${changeLanguage ? 'Error to send email (Field empty).' : 'Error al enviar el email (Campo vacío).'}` : ""}
         </p>
       </div>

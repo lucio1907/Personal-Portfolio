@@ -3,10 +3,10 @@ import useAppContext from "../../hooks/useAppContext";
 const ExperienciesWindow = ({ getResponse }) => {
     const { changeLanguage } = useAppContext()
     return (
-        <div>
+        <div className="flex flex-col notebook:flex-row notebook:gap-5">
             {getResponse.map(item => (
-                <div key={item._id} className="window-animation-experience relative -left-[1000px] bg-[#2b2d41] p-5 w-[270px] tablet:w-[420px] h-full flex flex-col items-center justify-center gap-2 mt-8 shadow-lg shadow-[#14172a]">
-                <img src={item.companyLogo} alt={item.title} className="h-[40px] w-[50px] tablet:h-[70px] tablet:w-[80px]" />
+                <div key={item._id} className="window-animation-experience relative -left-[1000px] notebook:-left-[2000px] bg-[#2b2d41] p-5 w-[270px] tablet:w-[420px] notebook:w-[420px] notebook:h-[332px] h-full flex flex-col items-center justify-center gap-2 mt-8 shadow-lg shadow-[#14172a] rounded-lg">
+                <img src={item.companyLogo} alt={item.title} className="h-[40px] w-[50px] tablet:h-[70px] tablet:w-[80px] notebook:h-[100px] notebook:w-[110px] rounded-[100%]" />
                 <p className="text-white text-xl font-paragraph font-semibold tracking-wide tablet:text-2xl tablet:tracking-normal">
                   {item.title}
                 </p>

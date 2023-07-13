@@ -9,7 +9,8 @@ export default {
         'paragraph': ['Poppins', 'sans-serif']
       },
       screens: {
-        'tablet': '700px'
+        'tablet': '700px',
+        'notebook': '900px'
       }
     },
   },

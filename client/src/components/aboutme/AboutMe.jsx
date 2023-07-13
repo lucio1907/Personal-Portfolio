@@ -14,10 +14,10 @@ const AboutMe = () => {
       className="bg-[#23263a] h-full flex flex-col"
     >
       <div className="mb-10 flex flex-col w-full p-5 animation-title-about opacity-0 relative bottom-4">
-        <p className="text-white font-lucio font-semibold tablet:text-xl">
+        <p className="text-white font-lucio font-semibold tablet:text-xl notebook:text-2xl">
           {changeLanguage ? "About me" : "Acerca de mí"}
         </p>
-        <p className="font-title font-bold text-[#ff4a57] text-3xl tablet:text-4xl">
+        <p className="font-title font-bold text-[#ff4a57] text-3xl tablet:text-4xl notebook:text-5xl">
           <span className="underline underline-offset-[15px]">
             {changeLanguage ? "Know" : "Conoceme"}
           </span>
@@ -31,7 +31,7 @@ const AboutMe = () => {
 
       <Waypoint onEnter={() => handleWaypointToLeft('.about-section')}/>
 
-      <div className=" relative -left-[1000px] about-section">
+      <div className=" relative -left-[1000px] notebook:-left-[2000px] about-section">
         {changeLanguage ? <AboutMeEnglish/> : <AboutMeSpanish/>}
 
         <CardsAbout
@@ -41,7 +41,7 @@ const AboutMe = () => {
         />
 
         <div>
-          <p className="text-[#ff4a57] font-paragraph text-[17px] tablet:text-xl p-5 mt-5">
+          <p className="text-[#ff4a57] font-paragraph text-[17px] tablet:text-xl notebook:text-2xl p-5 mt-5">
             { changeLanguage ? `Moreover here my socials:${""}` : `E aquí mis redes sociales:${" "}` }
           </p>
           <CardsAbout
