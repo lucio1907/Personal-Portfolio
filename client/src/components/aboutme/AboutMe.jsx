@@ -31,7 +31,7 @@ const AboutMe = () => {
 
       <Waypoint onEnter={() => handleWaypointToLeft('.about-section')}/>
 
-      <div className=" relative -left-[1000px] notebook:-left-[2000px] about-section">
+      <div className=" relative -left-[1000px] notebook:-left-[2000px] about-section xl:w-[80%]">
         {changeLanguage ? <AboutMeEnglish/> : <AboutMeSpanish/>}
 
         <CardsAbout

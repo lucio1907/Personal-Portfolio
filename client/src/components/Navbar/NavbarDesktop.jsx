@@ -8,7 +8,7 @@ const NavbarDesktop = () => {
             <div className="flex w-full">
                 <ul className="w-full flex justify-end items-center gap-10 mr-10">
                     {navButtons.map(item => (
-                        <li key={item} className="text-white font-paragraph hover:text-slate-400 transition-all ease-in duration-100">
+                        <li key={item} className="text-white font-paragraph hover:text-slate-400 transition-all ease-in duration-100 notebook:text-[18px] xl:text-[20px]">
                         <a href={`#${item.toLowerCase()}`}>{item}</a>
                       </li>
                     ))}

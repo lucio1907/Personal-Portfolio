@@ -17,7 +17,7 @@ const ChangeLanguageButton = () => {
 
   return (
     <button
-      className="h-10 w-20 tablet:w-28 tablet:h-12 bg-[#ff4a57] rounded text-white font-lucio font-bold tablet:text-[18px] active:bg-[#f51e2c] transition-all ease-in duration-300"
+      className="h-10 w-20 tablet:w-28 tablet:h-12 bg-[#ff4a57] rounded text-white font-lucio font-bold tablet:text-[18px] active:bg-[#f51e2c] transition-all ease-in duration-300 notebook:hover:bg-[#ff4a56c1] notebook:text-[#ffffffda]"
       onClick={handleClick}
     >
       {buttonValue}

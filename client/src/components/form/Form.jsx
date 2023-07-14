@@ -69,14 +69,14 @@ const Form = () => {
 
   return (
     <form
-      className="w-[100%] h-[100%] flex flex-col justify-center form-animation relative -left-[1000px]"
+      className="w-[100%] h-[100%] flex flex-col justify-center xl:items-center form-animation relative -left-[1000px] notebook:-left-[2000px]"
       onSubmit={handleSubmit}
     >
       <input
         name="from"
         type="text"
         placeholder="Email"
-        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7] font-paragraph notebook:p-5 notebook:text-lg"
+        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7] font-paragraph notebook:p-5 notebook:text-lg xl:w-[80%] xl:p-6"
         value={getClientEmail}
         onChange={handleOnChange}
       />
@@ -90,14 +90,14 @@ const Form = () => {
         cols="30"
         rows="1"
         placeholder={changeLanguage ? "Message" : "Mensaje"}
-        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] font-paragraph text-[#b7b9c7] notebook:p-5 notebook:text-lg"
+        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] resize-none outline-none placeholder:text-[#6f728f] font-paragraph text-[#b7b9c7] notebook:p-5 notebook:text-lg xl:w-[80%] xl:p-6"
         onChange={(e) => setGetMessage(e.target.value)}
         value={getMessage}
       ></textarea>
 
-      <div className="flex justify-end w-full mt-5">
+      <div className="flex justify-end w-full mt-5 xl:w-[80%]">
         <button
-          className={`${disabledButton ? "bg-[#ff4a56ba]" : "bg-[#ff4a57]" } p-2 ${ changeLanguage ? "w-[70%] tablet:w-[50%] notebook:w-[40%]" : "w-[50%] tablet:w-[40%] notebook:w-[35%]"} flex tablet:justify-end notebook:p-3 notebook:text-lg font-paragraph font-medium transition-all ease-in duration-200`}
+          className={`${disabledButton ? "bg-[#ff4a56ba]" : "bg-[#ff4a57]" } p-2 ${ changeLanguage ? "w-[70%] tablet:w-[50%] notebook:w-[40%] xl:w-[30%]" : "w-[50%] tablet:w-[40%] notebook:w-[35%] xl:w-[25%]"} flex tablet:justify-end notebook:p-3 notebook:text-lg font-paragraph font-medium transition-all ease-in duration-200`}
           disabled={disabledButton ? true : false}
         >
           <p className="ml-1 notebook:text-xl">

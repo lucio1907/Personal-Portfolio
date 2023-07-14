@@ -11,6 +11,15 @@ export default {
       screens: {
         'tablet': '700px',
         'notebook': '900px'
+      },
+      animation: {
+        bounce: 'bounce 1s infinite'
+      },
+      keyframes: {
+        bounce: {
+          '0%, 100%': { transform: 'translateY(-10px)' },
+          '50%': { transform: 'translateY(0)' }
+        }
       }
     },
   },
