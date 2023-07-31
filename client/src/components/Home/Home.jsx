@@ -7,7 +7,7 @@ const Home = () => {
     const { changeLanguage } = useAppContext();
 
     return(
-        <div className="bg-[#23263a] h-[829px] w-full flex flex-col">
+        <div className="bg-[#23263a] h-[700px] notebook:h-[829px] w-full flex flex-col">
             <div className="p-3 mr-3 flex justify-end">
                 <ChangeLanguageButton/>
             </div>
