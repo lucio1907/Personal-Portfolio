@@ -69,14 +69,14 @@ const Form = () => {
 
   return (
     <form
-      className="w-[100%] h-[100%] flex flex-col justify-center xl:items-center form-animation relative -left-[1000px] notebook:-left-[2000px]"
+      className="w-[100%] h-[100%] flex flex-col notebook:gap-3 justify-center xl:items-center form-animation relative -left-[1000px] notebook:-left-[2000px]"
       onSubmit={handleSubmit}
     >
       <input
         name="from"
         type="text"
         placeholder="Email"
-        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7] font-paragraph notebook:p-5 notebook:text-lg xl:w-[80%] xl:p-6"
+        className="w-[100%] mt-5 p-2 tablet:p-3 bg-[#282a41] outline-none placeholder:text-[#6f728f] text-[#b7b9c7] font-paragraph notebook:p-5 notebook:text-lg notebook:mt-16 xl:w-[80%] xl:p-6"
         value={getClientEmail}
         onChange={handleOnChange}
       />
