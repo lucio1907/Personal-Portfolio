@@ -7,7 +7,7 @@ const ConnectWithMe = () => {
   return (
     <div
       id={changeLanguage ? "contact" : "contacto"}
-      className="bg-[#23263a] h-full notebook:h-[500px] flex flex-col items-center justify-center pl-8 pr-8 pb-5 notebook:pb-6"
+      className="bg-[#23263a] h-full notebook:h-[500px] flex flex-col items-center justify-center pl-8 pr-8 pb-2 notebook:pb-6"
     >
       <div className="mt-10 h-full tablet:w-[70%]">
         <Waypoint
